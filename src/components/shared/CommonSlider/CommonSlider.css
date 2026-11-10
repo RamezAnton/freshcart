@@ -1,0 +1,64 @@
+.common-slider {
+  --swiper-navigation-size: 16px;
+  --swiper-navigation-color: #16a34a;
+  --swiper-pagination-bottom: 16px;
+  --swiper-pagination-bullet-size: 12px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+}
+
+.common-slider--main .swiper-button-prev,
+.common-slider--main .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 90%);
+  transition: background-color 150ms;
+}
+
+.common-slider--main .swiper-button-prev:hover,
+.common-slider--main .swiper-button-next:hover {
+  background: white;
+}
+
+.common-slider--main .swiper-button-prev svg,
+.common-slider--main .swiper-button-next svg {
+  width: 16px;
+  height: 16px;
+}
+
+.common-slider--main .swiper-pagination-bullet {
+  background: rgb(255 255 255 / 50%);
+  opacity: 1;
+  transition: width 200ms, background-color 200ms;
+}
+
+.common-slider--main .swiper-pagination-bullet-active {
+  width: 32px;
+  border-radius: 6px;
+  background: white;
+}
+
+.common-slider :is(.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.common-slider--main .swiper-slide-active :is(.slider-title, .slider-description, .slider-actions) {
+  animation: slider-content-in 450ms ease-out both;
+}
+
+@keyframes slider-content-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .common-slider--main .swiper-slide-active :is(.slider-title, .slider-description, .slider-actions) {
+    animation: none;
+  }
+
+  .common-slider .swiper-wrapper {
+    transition-duration: 0ms !important;
+  }
+}
